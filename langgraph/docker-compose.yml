@@ -1,0 +1,25 @@
+# services:
+#   mongodb:
+#     image: mongo
+#     ports:
+#       - 27017:27017
+#     environment:
+#       - MONGO_INITDB_ROOT_USERNAME=admin
+#       - MONGO_INITDB_ROOT_PASSWORD=admin
+#     volumes:
+#       - mongodb_data:/data/db
+
+# volumes:
+#   mongodb_data:
+
+services:
+  mongodb:
+    image: mongo
+    ports: 
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+    command: mongod --noauth  # Add this line
+
+volumes:
+  mongodb_data:
